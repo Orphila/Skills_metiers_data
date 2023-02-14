@@ -21,7 +21,7 @@ collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
-st.markdown("debug 3 lancé")
+st.markdown("debug 4 lancé")
 st.markdown(link)
 
 
