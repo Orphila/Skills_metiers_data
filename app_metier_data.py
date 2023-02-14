@@ -22,8 +22,6 @@ collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
-st.markdown("debug 9 lancé")
-st.markdown(lien)
 
 df = pd.DataFrame(list(cursor))
 client.close()
