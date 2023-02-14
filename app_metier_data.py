@@ -23,7 +23,7 @@ collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
-st.markdown("debug lancé")
+st.markdown("debug 0 lancé")
 st.markdown(password)
 st.markdown(list(cursor))
 
