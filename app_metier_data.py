@@ -16,7 +16,7 @@ password = os.environ.get("MONGODB_PASSWORD")
 import pymongo
 import os
 
-link =" mongodb+srv://Orphila:<"+password+">@cluster0.osnqmmc.mongodb.net/test"
+link =" mongodb+srv://Orphila:<"+str(password)+">@cluster0.osnqmmc.mongodb.net/test"
 client = pymongo.MongoClient(link)
 db = client["ma_base_de_donnees"]
 collection = db["ma_collection"]
