@@ -13,11 +13,32 @@ st.title(":bar_chart: Skills pour métiers de la data")
 import pymongo
 import os
 
-#link = str(os.getenv("lien"))
 @st.cache_resource
+def init_connection():
+    return pymongo.MongoClient(st.secrets["mongo"]["lien"])
+
+client = init_connection()
+st.markdown("debug 7 lancé, client créé")
+# Pull data from the collection.
+# Uses st.cache_data to only rerun when the query changes or after 10 min.
+@st.cache_data(ttl=600)
+def get_data():
+    db = client.mydb
+    items = db.mycollection.find()
+    items = list(items)  # make hashable for st.cache_data
+    return items
+
+items = get_data()
+
+# Print results.
+for item in items[:5]:
+    st.write(f"{item['poste']} has a :{item['contrat']}:")
+
+
+"""
+#lien = str(os.getenv("lien"))
 lien = st.secrets['mongo']['lien']
 client = pymongo.MongoClient(lien)
-@st.cache_data(ttl=600)
 db = client["dashboard_metiers_data"]
 collection = db["data"]
 cursor = collection.find({})
@@ -25,7 +46,8 @@ cursor = collection.find({})
 import pandas as pd
 st.markdown("debug 7 lancé")
 st.markdown(lien)
-
+"""
+"""
 df = pd.DataFrame(list(cursor))
 client.close()
 df = df.drop('_id',axis=1)
@@ -140,6 +162,6 @@ left_column, right_column = st.columns([2,1])
 
 left_column.plotly_chart(carte(df_selection))
 right_column.plotly_chart(fromage)
-
+"""
 
 
