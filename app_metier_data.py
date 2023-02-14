@@ -14,15 +14,15 @@ import pymongo
 import os
 
 link = str(os.getenv("lien"))
-
+lien = st.secrets
 client = pymongo.MongoClient(link)
 db = client["dashboard_metiers_data"]
 collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
-st.markdown("debug 4 lancé")
-st.markdown(link)
+st.markdown("debug 5 lancé")
+st.markdown(lien)
 
 
 df = pd.DataFrame(list(cursor))
