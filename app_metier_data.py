@@ -18,14 +18,14 @@ def init_connection():
     return pymongo.MongoClient(st.secrets["mongo"]["lien"])
 
 client = init_connection()
-st.markdown("debug 7 lancé, client créé")
+st.markdown("debug 8 lancé, client créé")
 # Pull data from the collection.
 # Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
 def get_data():
-    db = client.mydb
-    items = db.mycollection.find()
-    items = list(items)  # make hashable for st.cache_data
+    db = client.dashboard_metiers_data
+    items = db.data.find()
+    items = list(items) 
     return items
 
 items = get_data()
