@@ -12,8 +12,8 @@ st.title(":bar_chart: Skills pour métiers de la data")
 
 import pymongo
 import os
-
-link = str(os.getenv("mongo_link"))
+os.environ['lien'] = "mongodb+srv://Orphila:orphilaPRodj94!@cluster0.osnqmmc.mongodb.net/test?authMechanism=DEFAULT"
+link = str(os.getenv("lien"))
 
 client = pymongo.MongoClient(link)
 db = client["dashboard_metiers_data"]
