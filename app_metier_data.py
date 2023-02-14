@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Skills pour métiers data", 
                    page_icon=":bar_chart:",
                    layout="wide")
+# ---- MAINPAGE ----
+st.title(":bar_chart: Skills pour métiers de la data")
+st.markdown("##")
 
 import pymongo
 import os
@@ -21,7 +24,8 @@ collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
-
+print(username)
+print(list(cursor))
 df = pd.DataFrame(list(cursor))
 client.close()
 df = df.drop('_id',axis=1)
@@ -36,9 +40,6 @@ for i in range(len(df)):
         df.loc[i]['lieu']='Marcq-En-Baroeul'
     if 'Montpellier' in df.loc[i]['lieu']:
         df.loc[i]['lieu']='Montpellier'
-# ---- MAINPAGE ----
-st.title(":bar_chart: Skills pour métiers de la data")
-st.markdown("##")
 
 import plotly.express as px
 
@@ -133,10 +134,7 @@ col_left.plotly_chart(bar_techs('Langages'))
 col_mid.plotly_chart(bar_techs('Outils'))
 col_right.plotly_chart(bar_techs('Modules'))
 
-
 st.markdown("""---""")
-
-
 
 left_column, right_column = st.columns([2,1])
 
