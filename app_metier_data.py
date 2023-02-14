@@ -19,7 +19,7 @@ password = str(os.environ.get("MONGODB_PASSWORD"))
 link ="mongodb+srv://"+username+":"+password+"!@cluster0.osnqmmc.mongodb.net/test?authMechanism=DEFAULT"
 client = pymongo.MongoClient(link)
 db = client["dashboard_metiers_data"]
-collection = db["dashboard_metiers_data.data"]
+collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
