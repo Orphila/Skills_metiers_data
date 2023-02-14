@@ -56,7 +56,7 @@ def dip(df):
     
     return dip_res
 fromage = px.pie(dip(df_selection), values='nombre', names='diplome')
-fromage.update_layout(title_text="Répartition des diplômes")
+fromage.update_layout(title_text="Répartition des diplômes demandés")
 fromage.update_traces(hole=0.55)
 fromage.update_layout(height=400, width=300)
 
@@ -103,7 +103,7 @@ def carte(df):
                      path=["lieu"],
                      values="counts",
                      title="Répartition des villes des offres")
-    fig.update_layout(height=500, width=500)
+    fig.update_layout(height=500, width=700)
     return fig
 # ---- Affichage des graphs ----
 
