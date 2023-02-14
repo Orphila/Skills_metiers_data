@@ -9,7 +9,6 @@ st.set_page_config(page_title="Skills pour métiers data",
                    layout="wide")
 # ---- MAINPAGE ----
 st.title(":bar_chart: Skills pour métiers de la data")
-st.markdown("##")
 
 import pymongo
 import os
@@ -24,8 +23,9 @@ collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
-print(username)
-print(list(cursor))
+st.markdown(username)
+st.markdown(list(cursor))
+
 df = pd.DataFrame(list(cursor))
 client.close()
 df = df.drop('_id',axis=1)
