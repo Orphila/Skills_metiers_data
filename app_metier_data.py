@@ -12,10 +12,11 @@ st.set_page_config(page_title="Skills pour métiers data",
 
 import pymongo
 import os
-password = os.environ.get("MONGODB_PASSWORD")
+username = str(os.environ.get("MONGODB_USERNAME"))
+password = str(os.environ.get("MONGODB_PASSWORD"))
 
 
-link ="mongodb+srv://Orphila:<"+str(password)+">@cluster0.osnqmmc.mongodb.net/test"
+link ="mongodb+srv://"+username+":"+password+"!@cluster0.osnqmmc.mongodb.net/test?authMechanism=DEFAULT"
 client = pymongo.MongoClient(link)
 db = client["dashboard_metiers_data"]
 collection = db["dashboard_metiers_data.data"]
