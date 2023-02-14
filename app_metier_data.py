@@ -13,17 +13,18 @@ st.title(":bar_chart: Skills pour métiers de la data")
 import pymongo
 import os
 
-link = str(os.getenv("lien"))
+#link = str(os.getenv("lien"))
+@st.cache_resource
 lien = st.secrets['mongo']['lien']
 client = pymongo.MongoClient(lien)
+@st.cache_data(ttl=600)
 db = client["dashboard_metiers_data"]
 collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
-st.markdown("debug 6 lancé")
+st.markdown("debug 7 lancé")
 st.markdown(lien)
-
 
 df = pd.DataFrame(list(cursor))
 client.close()
