@@ -23,7 +23,7 @@ collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
-st.markdown(username)
+st.markdown(password)
 st.markdown(list(cursor))
 
 df = pd.DataFrame(list(cursor))
