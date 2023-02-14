@@ -12,9 +12,9 @@ st.title(":bar_chart: Skills pour métiers de la data")
 
 import pymongo
 import os
-#link = str(os.getenv("link_mongo"))
 
-link ="mongodb+srv://Orphila:orphilaPRodj94!@cluster0.osnqmmc.mongodb.net/test?authMechanism=DEFAULT"
+link = str(os.getenv("mongo_link"))
+
 client = pymongo.MongoClient(link)
 db = client["dashboard_metiers_data"]
 collection = db["data"]
@@ -22,7 +22,7 @@ cursor = collection.find({})
 
 import pandas as pd
 st.markdown("debug 3 lancé")
-st.markdown(link[22:37])
+st.markdown(link)
 
 
 df = pd.DataFrame(list(cursor))
