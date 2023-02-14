@@ -4,10 +4,8 @@ import streamlit as st
 import plotly.express as px  
 import matplotlib.pyplot as plt
 
-# emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Skills pour métiers data", 
-                   page_icon=":bar_chart:", 
- 
+                   page_icon=":bar_chart:",
                    layout="wide")
 
 import pymongo
@@ -26,7 +24,7 @@ import pandas as pd
 
 df = pd.DataFrame(list(cursor))
 client.close()
-
+df = df.drop('_id',axis=1)
 #df = pd.read_json("df2.json")
 df = df.rename(columns={'outil': 'Outils'})
 df = df.rename(columns={'package': 'Modules'})
