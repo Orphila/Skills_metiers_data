@@ -14,7 +14,7 @@ import pymongo
 import os
 
 link = str(os.getenv("lien"))
-lien = st.secrets
+lien = st.secrets['lien']
 client = pymongo.MongoClient(link)
 db = client["dashboard_metiers_data"]
 collection = db["data"]
