@@ -28,7 +28,7 @@ st.markdown(lien)
 df = pd.DataFrame(list(cursor))
 client.close()
 df = df.drop('_id',axis=1)
-#df = pd.read_json("df2.json")
+
 df = df.rename(columns={'outil': 'Outils'})
 df = df.rename(columns={'package': 'Modules'})
 df = df.rename(columns={'tech': 'Langages'})
@@ -39,8 +39,6 @@ for i in range(len(df)):
         df.loc[i]['lieu']='Marcq-En-Baroeul'
     if 'Montpellier' in df.loc[i]['lieu']:
         df.loc[i]['lieu']='Montpellier'
-
-import plotly.express as px
 
 #----- Filtre métiers
 st.sidebar.header("Filtrez les métiers qui vous intéresse")
@@ -92,7 +90,7 @@ def get_nb_techs(recherche):
             else:
                 list_techs[tech]+=1 #Sinon on l'a croisée une fois de plus, on l'ajoute 
     return list_techs
- 
+
 def bar_techs(recherche):
     """
     On crée le barchart pour les techs/outils/packages (recherche) 
@@ -109,6 +107,7 @@ def bar_techs(recherche):
     )
     chart.update_traces(marker_color='red')
     chart.update_layout(height=400, width=300)
+    chart.update_layout(xaxis_tickangle=-45)
     return chart
     
 def carte(df):
