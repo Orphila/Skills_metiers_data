@@ -10,8 +10,24 @@ st.set_page_config(page_title="Skills pour métiers data",
  
                    layout="wide")
 
+import os
+
+password = os.environ.get("MONGODB_PASSWORD")
+import pymongo
+import os
+
+link =" mongodb+srv://Orphila:<"+password+">@cluster0.osnqmmc.mongodb.net/test"
+client = pymongo.MongoClient(link)
+db = client["ma_base_de_donnees"]
+collection = db["ma_collection"]
+cursor = collection.find({})
+
 import pandas as pd
-df = pd.read_json("df2.json")
+
+df = pd.DataFrame(list(cursor))
+
+import pandas as pd
+#df = pd.read_json("df2.json")
 df = df.rename(columns={'outil': 'Outils'})
 df = df.rename(columns={'package': 'Modules'})
 df = df.rename(columns={'tech': 'Langages'})
