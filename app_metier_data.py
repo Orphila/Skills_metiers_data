@@ -12,7 +12,7 @@ st.title(":bar_chart: Skills pour métiers de la data")
 
 import pymongo
 import os
-os.environ['lien'] = "mongodb+srv://Orphila:orphilaPRodj94!@cluster0.osnqmmc.mongodb.net/test?authMechanism=DEFAULT"
+
 link = str(os.getenv("lien"))
 
 client = pymongo.MongoClient(link)
