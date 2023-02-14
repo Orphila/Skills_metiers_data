@@ -12,9 +12,7 @@ st.title(":bar_chart: Skills pour métiers de la data")
 
 import pymongo
 import os
-username = str(os.getenv("MONGODB_USERNAME"))
-#password = str(os.getenv("link_mongo"))
-
+#link = str(os.getenv("link_mongo"))
 
 link ="mongodb+srv://Orphila:orphilaPRodj94!@cluster0.osnqmmc.mongodb.net/test?authMechanism=DEFAULT"
 client = pymongo.MongoClient(link)
@@ -23,9 +21,9 @@ collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
-st.markdown("debug 0 lancé")
-st.markdown(username)
-st.markdown(list(cursor))
+st.markdown("debug 1 lancé")
+st.markdown(link)
+
 
 df = pd.DataFrame(list(cursor))
 client.close()
