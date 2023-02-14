@@ -21,8 +21,8 @@ collection = db["data"]
 cursor = collection.find({})
 
 import pandas as pd
-st.markdown("debug 1 lancé")
-st.markdown(link)
+st.markdown("debug 2 lancé")
+st.markdown(link[25:40])
 
 
 df = pd.DataFrame(list(cursor))
