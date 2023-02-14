@@ -18,7 +18,7 @@ password = os.environ.get("MONGODB_PASSWORD")
 link ="mongodb+srv://Orphila:<"+str(password)+">@cluster0.osnqmmc.mongodb.net/test"
 client = pymongo.MongoClient(link)
 db = client["dashboard_metiers_data"]
-collection = db["data"]
+collection = db["dashboard_metiers_data.data"]
 cursor = collection.find({})
 
 import pandas as pd
