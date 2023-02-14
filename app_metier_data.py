@@ -12,8 +12,8 @@ st.title(":bar_chart: Skills pour métiers de la data")
 
 import pymongo
 import os
-username = str(os.environ.get("MONGODB_USERNAME"))
-password = str(os.environ.get("MONGODB_PASSWORD"))
+username = str(os.getenv("MONGODB_USERNAME"))
+password = str(os.getenv("MONGODB_PASSWORD"))
 
 
 link ="mongodb+srv://"+username+":"+password+"!@cluster0.osnqmmc.mongodb.net/test?authMechanism=DEFAULT"
