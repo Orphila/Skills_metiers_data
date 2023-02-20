@@ -43,7 +43,7 @@ st.sidebar.header("Filtrez les métiers qui vous intéresse")
 liste_metiers=list(df['poste'].unique())
 metiers = st.sidebar.multiselect("Selectionnez les métiers:",
                             options=liste_metiers,
-                            default=liste_metiers)
+                            default=liste_metiers[1])
 
 df_selection = df.query("poste == @metiers")
 
